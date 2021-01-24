@@ -1,6 +1,9 @@
-<h3>please {{isSignupMode?'Signup':'Login'}}</h3>
+<div class="container">
+<h3  class="d-flex justify-content-center my-3">please {{isSignupMode?'Signup':'Login'}}</h3>
+<div  class="d-flex justify-content-center my-2">
+    <button class="btn btn-outline-primary" (click)="onChangeMode()">Go To {{isSignupMode?'Login':'Signup'}} Form</button>
 
-<button (click)="onChangeMode()"> {{isSignupMode?'Login':'Signup'}}</button>
+</div>
 
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
 
@@ -50,3 +53,4 @@
 
 
 </form>
+</div>
