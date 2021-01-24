@@ -1,0 +1,52 @@
+<h3>please {{isSignupMode?'Signup':'Login'}}</h3>
+
+<button (click)="onChangeMode()"> {{isSignupMode?'Login':'Signup'}}</button>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+    <div class="col-12 form-group" *ngIf="isSignupMode">
+        <label for="name">Persinal Name</label>
+        <input type="text" id="name" class="form-control" name="name" ngModel required pattern="(.{2,20})">
+
+    </div>
+    <div class="col-12 form-group" *ngIf="isSignupMode">
+        <label for="id">ID</label>
+        <input type="text" id="id" class="form-control" name="id" ngModel required pattern="(.{2,20})">
+    </div>
+
+    <div class="col-12 form-group">
+        <label for="userName">User Name</label>
+        <input type="text" id="userName" class="form-control" name="userName" ngModel required pattern="(.{2,20})">
+    </div>
+
+    <div class="col-12 form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" name="password" ngModel required pattern="(.{2,20})">
+    </div>
+
+    <div class="col-12 form-group" *ngIf="isSignupMode">
+        <label for="confirmPassword" [ngStyle]="{'color':isPasswordconfirm(f) ? 'black' : 'red' }">Confirm
+            Password</label>
+        <input type="password" id="confirmPassword" class="form-control" name="confirmPassword"
+            [(ngModel)]="confirmPassword" required>
+    </div>
+
+    <div class="col-12 form-group" *ngIf="isSignupMode">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" ngModel required email pattern="(.{2,20})">
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="col-xs-12">
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid || !isPasswordconfirm(f)||isLoading">
+            <span *ngIf="isLoading" class="spinner-border text-primary spinner-border-sm" role="status"
+              aria-hidden="true"> <span class="sr-only">Loading...</span></span>
+            {{isSignupMode ?'Signup':'Login'}}</button>
+
+        </div>
+      </div>
+
+
+
+
+</form>
