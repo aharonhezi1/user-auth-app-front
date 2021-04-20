@@ -1,4 +1,14 @@
+<h3  class="d-flex justify-content-center my-3">Please {{isSignupMode?'Signup':'Login'}}</h3>
+<div  class="d-flex justify-content-center my-2">
+    <button class="btn btn-outline-primary" (click)="onChangeMode()">Go To {{isSignupMode?'Login':'Signup'}} Form</button>
 
-<!-- <app-login-v2></app-login-v2> -->
+</div>
+<div *ngIf='isSignupMode'>
+    <app-signup></app-signup>
+</div>
+<div *ngIf='!isSignupMode'>
+    <app-login-v2></app-login-v2>
 
-<app-signup></app-signup>
+</div>
+
+

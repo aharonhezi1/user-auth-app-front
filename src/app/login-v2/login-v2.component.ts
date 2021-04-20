@@ -18,11 +18,11 @@ export class LoginV2Component implements OnInit {
 
 
 
-  onSubmit(form) {
+  onSubmit() {
     this.isLoading = true;
-    console.log(form.value);
+    console.log(this.loginForm.value);
 
-    this.apiService.login(form.value).subscribe((res: any) => {
+    this.apiService.login(this.loginForm.value).subscribe((res: any) => {
       console.log(res);
       this.isLoading = false
 
