@@ -9,13 +9,17 @@ import { LoginComponent } from './login/login.component';
 import { LoginV2Component } from './login-v2/login-v2.component';
 import { SignupComponent } from './signup/signup.component';
 import { ApiService } from './services/api.service';
+import { DecamilizePipe } from './pipes/decamilize.pipe';
+import { FormgroupControlKeysPipe } from './pipes/formgroup-control-keys.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginV2Component,
-    SignupComponent
+    SignupComponent,
+    DecamilizePipe,
+    FormgroupControlKeysPipe
   ],
   imports: [
     BrowserModule,

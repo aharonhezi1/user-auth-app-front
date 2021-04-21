@@ -10,7 +10,6 @@ import {UtilsService} from "../services/utils.service"
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-Object=Object
   isLoading: boolean
   signupForm: FormGroup;
   controlInputType = {
@@ -22,7 +21,7 @@ Object=Object
     confirmPassword: 'password'
   }
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private validatorsService: ValidatorsService, public utilsService:UtilsService) { }
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private validatorsService: ValidatorsService, ) { }
 
   onSubmit() {
     this.isLoading = true;

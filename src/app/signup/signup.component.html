@@ -5,10 +5,10 @@
         <div class="col-12 col-md-10 col xl-8 ">
             <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-                <div *ngFor="let control of Object.keys(signupForm.value)" class="col-12 form-group">
+                <div *ngFor="let control of signupForm|formgroupControlKeys" class="col-12 form-group">
                     <label
                         [ngClass]="{'errorLabel':signupForm.get(control)?.invalid && signupForm.get(control)?.touched}"
-                        [for]="control">{{utilsService.decamelize(control)}}</label>
+                        [for]="control">{{control|decamilize}}</label>
                     <input [type]="controlInputType[control]" class="form-control" [formControlName]="control">
                     <div *ngIf="signupForm.get(control)?.errors?.errorMessage" class="errorMessage">
                         {{signupForm.get(control)?.errors?.errorMessage}}</div>
