@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -12,18 +13,21 @@ export class LoginV2Component implements OnInit {
   isLoading: boolean
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService) { }
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private cookieService:CookieService) { }
 
-
+ 
 
 
 
   onSubmit() {
     this.isLoading = true;
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
 
     this.apiService.login(this.loginForm.value).subscribe((res: any) => {
       console.log(res);
+      this.cookieService.set('optUser',JSON.stringify(res))
+      window.history.back();
+    
       this.isLoading = false
 
     }, (e) => {

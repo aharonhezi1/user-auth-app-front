@@ -11,6 +11,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ApiService } from './services/api.service';
 import { DecamilizePipe } from './pipes/decamilize.pipe';
 import { FormgroupControlKeysPipe } from './pipes/formgroup-control-keys.pipe';
+import { CookieService } from 'ngx-cookie-service'
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { FormgroupControlKeysPipe } from './pipes/formgroup-control-keys.pipe';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
